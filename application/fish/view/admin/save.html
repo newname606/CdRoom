@@ -1,0 +1,36 @@
+{extend name="Public:Basesave"/}
+{block name="content"}
+<form action="" method="post" class="form form-horizontal" id="form-member-add" enctype="multipart/form-data">
+    <div class="row cl">
+        <label class="form-label col-xs-4 col-sm-3">用户名</label>
+        <div class="formControls col-xs-8 col-sm-9">
+            <input type="text" class="input-text" value="{$row['username']?$row['username']:''}" name="username">
+        </div>
+    </div>
+
+    <div class="row cl">
+        <label class="form-label col-xs-4 col-sm-3">密码</label>
+        <div class="formControls col-xs-8 col-sm-9">
+            <input type="text" class="input-text" placeholder="如若修改密码,请输入你的新密码,不填默认不编辑" value="" name="pwd">
+        </div>
+    </div>
+
+    <div class="row cl">
+        <label class="form-label col-xs-4 col-sm-3">角色编号</label>
+        <div class="formControls col-xs-8 col-sm-9">
+            <select class="btn btn-primary radius" name="role_id" id="">
+                {volist name='role' id='vo'}
+                <option value="{$vo.id}" <?php if(isset($row)){ ?> selected="selected" <?php } ?>>{$vo.name}</option>
+                {/volist}
+            </select>
+        </div>
+    </div>
+    <input type="hidden" name="id" value="{$row['id'] ? $row['id'] : ''}">
+
+    <div class="row cl">
+        <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+            <input class="btn btn-primary radius" type="button" onclick="obj_save()" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+        </div>
+    </div>
+</form>
+{/block}

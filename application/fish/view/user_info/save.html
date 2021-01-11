@@ -1,0 +1,41 @@
+{extend name="Public:Basesave"/}
+{block name="content"}
+<form action="" method="post" class="form form-horizontal" id="form-member-add" enctype="multipart/form-data">
+    <div class="row cl">
+        <label class="form-label col-xs-4 col-sm-3">用户名</label>
+        <div class="formControls col-xs-8 col-sm-9">
+            <input type="text" class="input-text" value="{$row['uname']?$row['uname']:''}" name="uname">
+        </div>
+    </div>
+    <div class="row cl">
+        <label class="form-label col-xs-4 col-sm-3">用户头像</label>
+        <div class="formControls col-xs-8 col-sm-9">
+            <input type="file" class="file" name="logo">
+        </div>
+    </div>
+    <div class="row cl">
+        <label class="form-label col-xs-4 col-sm-3">用户的关注</label>
+        <div class="formControls col-xs-8 col-sm-9">
+            <input type="text" class="input-text" value="{$row['ulike']?$row['ulike']:''}" name="ulike">
+        </div>
+    </div>
+    <div class="row cl">
+        <label class="form-label col-xs-4 col-sm-3">用户性别</label>
+        <div class="formControls col-xs-8 col-sm-9">
+            <input type="text" class="input-text" value="{$row['sex']?$row['sex']:''}" name="sex">
+        </div>
+    </div>
+    <div class="row cl">
+        <label class="form-label col-xs-4 col-sm-3">用户状态</label>
+        <div class="formControls col-xs-8 col-sm-9">
+            <input type="text" class="input-text" value="{$row['state']?$row['state']:''}" name="state">
+        </div>
+    </div>
+    <input type="hidden" name="id" value="{$row['id'] ? $row['id'] : ''}">
+    <div class="row cl">
+        <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+            <input class="btn btn-primary radius" type="button" onclick="obj_save()" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+        </div>
+    </div>
+</form>
+{/block}

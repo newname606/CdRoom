@@ -1,0 +1,34 @@
+{extend name="Public:Basesave"/}
+{block name="content"}
+<script src="http://code.jquery.com/jquery-latest.js">
+
+</script>
+<form action="" method="post" class="form form-horizontal" id="form-member-add" enctype="multipart/form-data">
+    <div class="row cl">
+        <label class="form-label col-xs-4 col-sm-3">名称</label>
+        <div class="formControls col-xs-8 col-sm-9">
+            <input type="text" placeholder="请输入楼盘的关键词,如在售,近海" class="input-text" value="{$row['name']?$row['name']:''}" name="name">
+        </div>
+    </div>
+
+    <div class="row cl">
+        <label class="form-label col-xs-4 col-sm-3">标签背景颜色</label>
+        <div class="formControls col-xs-8 col-sm-9">
+            <select class="btn btn-primary radius"  name="color">
+                <option value="">--请选择--</option>
+                <option style="background: #DC143C" value="#DC143C">红色</option>
+                <option style="background: #87CEFA" value="#87CEFA">淡蓝色</option>
+                <option style="background: #009933" value="#009933">绿色</option>
+                <option style="background: #FFCC99" value="#FFCC99">褐色</option>
+                <option style="background: #CCCCCC" value="#CCCCCC">灰色</option>
+            </select>
+        </div>
+    </div>
+    <input type="hidden" name="id" value="{$row['id'] ? $row['id'] : ''}">
+    <div class="row cl">
+        <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+            <input class="btn btn-primary radius" type="button" onclick="obj_save()" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+        </div>
+    </div>
+</form>
+{/block}

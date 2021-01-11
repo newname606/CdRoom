@@ -1,0 +1,48 @@
+{extend name="Public:Basesave"/}
+{block name="content"}
+<form action="" method="post" class="form form-horizontal" id="form-member-add" enctype="multipart/form-data">
+    <div class="row cl">
+        <label class="form-label col-xs-4 col-sm-3">楼盘</label>
+        <div class="formControls col-xs-8 col-sm-9">
+            <select class="btn btn-primary radius" name="roomid" id="roomid">
+                <option value="">--请选择--</option>
+                {volist name="builds" id="build"}
+                <option value="{$build.id}"
+                <?php if(isset($row)){ if($build['id']==$row['roomid']){ ?> selected="selected" <?php }} ?> >{$build.bname}</option>
+                {/volist}
+            </select>
+        </div>
+    </div>
+
+    <div class="row cl">
+        <label class="form-label col-xs-4 col-sm-3">户型名称</label>
+        <div class="formControls col-xs-8 col-sm-9">
+            <input type="text" class="input-text" placeholder="请输入户型名称,如两室一厅,一室一厅" value="{$row['title']?$row['title']:''}" name="title">
+        </div>
+    </div>
+    <div class="row cl">
+        <label class="form-label col-xs-4 col-sm-3">户型图</label>
+        <div class="formControls col-xs-8 col-sm-9">
+            <input type="file" class="file" name="logo"><span style="color: red;">不选择默认不修改*</span>
+        </div>
+    </div>
+    <div class="row cl">
+        <label class="form-label col-xs-4 col-sm-3">户型分类</label>
+        <div class="formControls col-xs-8 col-sm-9">
+            <input type="text" class="input-text" placeholder="请输入户型分类,如A1,A2" value="{$row['type']?$row['type']:''}" name="type">
+        </div>
+    </div>
+    <div class="row cl">
+        <label class="form-label col-xs-4 col-sm-3">户型面积</label>
+        <div class="formControls col-xs-8 col-sm-9">
+            <input type="text" class="input-text" placeholder="请输入户型面积,如70㎡" value="{$row['area']?$row['area']:''}" name="area">
+        </div>
+    </div>
+    <input type="hidden" name="id" value="{$row['id'] ? $row['id'] : ''}">
+    <div class="row cl">
+        <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+            <input class="btn btn-primary radius" type="button" onclick="obj_save()" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+        </div>
+    </div>
+</form>
+{/block}

@@ -1,0 +1,45 @@
+{extend name="Public:Baseindex" /}
+{block name="content"}
+<div class="cl pd-5 bg-1 bk-gray mt-20">
+    <a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i
+            class="Hui-iconfont">&#xe6e2;</i> 批量删除</a>
+    <a href="{:url('save')}" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i>添加</a></span>
+    <span class="r">共有数据：<strong>{$count}</strong> 条</span></div>
+<table class="table table-border table-bordered table-hover table-bg table-sort">
+    <thead>
+    <tr>
+        <th width="25"><input type="checkbox"></th>
+        <th>户型编号</th>
+        <th>楼盘</th>
+        <th>户型标题</th>
+        <th>户型图</th>
+        <th>户型分类</th>
+        <th>户型面积</th>
+        <th>提交时间</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    {volist name="rows" id="row" key='i'}
+    <tbody>
+    <tr>
+        <td><input type="checkbox" value="{$row.id}" name="id"></td>
+        <td>{$i}</td>
+        <td>{$row.bname}</td>
+        <td>{$row.title}</td>
+        <td><img style="width: 100px;height: 80px;" src="{$row.logo}" alt=""></td>
+        <td>{$row.type}</td>
+        <td>{$row.area}</td>
+        <td>{$row.create_time|date='Y-m-d',###}</td>
+        <td class="td-manage">
+            <a title="编辑" href="{:url('save',array('id'=>$row['id']))}" class="ml-5"
+               style="text-decoration:none">
+                <i class="Hui-iconfont">&#xe6df;</i>
+            </a> <a title="删除" href="javascript:;" onclick="obj_del(this,{$row['id']})" class="ml-5"
+                    style="text-decoration:none">
+            <i class="Hui-iconfont">&#xe6e2;</i></a>
+        </td>
+    </tr>
+    </tbody>
+    {/volist}
+</table>
+{/block}

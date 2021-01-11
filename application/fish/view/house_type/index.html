@@ -1,0 +1,27 @@
+{extend name="Public:Baseindex" /}
+{block name="content"}
+<div class="cl pd-5 bg-1 bk-gray mt-20">
+    <span class="r">共有数据：<strong>{$count}</strong> 条</span></div>
+<table class="table table-border table-bordered table-hover table-bg table-sort">
+    <thead>
+    <tr>
+        <th>编号</th>
+        <th>楼盘名称</th>
+        <th>地址</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    {volist name="rows" id="row"}
+    <tbody>
+    <tr>
+        <td>{$row.id}</td>
+        <td>{$row.bname}</td>
+        <td>{$row.path}</td>
+        <td class="td-manage">
+            <a title="查看" href="{:url('detail',array('id'=>$row['id']))}" class="ml-5" style="text-decoration:none">查看户型</a>
+        </td>
+    </tr>
+    </tbody>
+    {/volist}
+</table>
+{/block}
