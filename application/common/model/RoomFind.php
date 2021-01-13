@@ -9,7 +9,13 @@ use think\Model;
 
 class RoomFind extends Model
 {
-    /*获取筛选信息*/
+    /**
+     * @return array
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     * 获取楼盘信息接口
+     */
     public function GetInfo(){
         $Info['BuildType'] = db('BuildType')->field('id,type name')->select();/*户型*/
         $Info['BuildArea'] = db('BuildArea')->field('id,area name')->select();/*面积*/
@@ -42,19 +48,23 @@ class RoomFind extends Model
         return $Info;
     }
 
-    /*楼盘筛选获取详细信息
-    $areaid,面积编号
-    $typeid  户型编号 数组
-    $city='', 区域
-    $zgxiuid='', 装修
-    $page=1,
-    $pagesize=5
-    $sortid = ''户型分类编号数组
+    /**
+     * 楼盘筛选获取详细信息
+     * @param array $data
+     * @param string $areaid 面积编号
+     * @param string $typeid 类型编号
+     * @param string $city 城市
+     * @param string $zgxiuid 装修编号
+     * @param string $sortid 户型分类编号
+     * @param string $pricestate 价格状态
+     * @param string $totalid 总价编号
+     * @param string $unitid 单价编号
+     * @return bool|\PDOStatement|string|\think\Collection
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
 
-    minprice maxprice
-    $pricestate='', 0 总价 1 单价
-    $labelid  标签编号 数组
-    */
     public function GetBuildInfo($data){
 
         $pages = ($data['page']-1)*$data['pagesize'];
@@ -83,7 +93,12 @@ class RoomFind extends Model
         return $Info;
     }
 
-    /*面积筛选*/
+    /**
+     * @param $where
+     * @param $data
+     * @return mixed
+     * 面积筛选
+     */
     public function area($where,$data){
         /*是否传入面积*/
         if($data['areaid']){
@@ -92,31 +107,46 @@ class RoomFind extends Model
         return $where;
     }
 
-    /*户型*/
+    /**
+     * @param $data
+     * @return false|string|null
+     * 户型筛选
+     */
     public function type($data){
         /*是否传入户型编号*/
+        $map1 = null;
         if($data['typeid']){
             $type = str2arr($data['typeid']);
-            $map = '';
             foreach($type as $k=>$v){
                 $v = '%'.$v.'%';
-                $map .= ' typeid LIKE "'.$v.'" or';
+                $map1 .= ' typeid LIKE "'.$v.'" or';
             }
-            $map  = substr($map,0,strlen($map)-3);
+            $map1  = substr($map1,0,strlen($map1)-3);
         }
-        return $map;
+
+        return $map1;
     }
 
-    /*户型*/
+    /**
+     * @param $where
+     * @param $data
+     * @return mixed
+     * 装修
+     */
     public function zgxiu($where,$data){
-        /*是否传入户型编号*/
+        /*是否传入装修编号*/
         if($data['zgxiuid']){
             $where['zgxiuid'] = ['in',$data['zgxiuid']];
         }
         return $where;
     }
 
-    /*价格*/
+    /**
+     * @param $where
+     * @param $data
+     * @return mixed
+     * 价格筛选
+     */
     public function price($where,$data){
         /*是否传入户型编号  0 总价 1单价*/
             if($data['pricestate'] == '0'){
@@ -128,7 +158,12 @@ class RoomFind extends Model
         return $where;
     }
 
-    /*区域*/
+    /**
+     * @param $where
+     * @param $data
+     * @return mixed
+     * 区域
+     */
     public function city($where,$data){
         /*是否传入户型编号*/
         if($data['city']){
@@ -137,12 +172,17 @@ class RoomFind extends Model
         return $where;
     }
 
-    /*标签*/
+    /**
+     * @param $data
+     * @return false|string|null
+     * 标签
+     */
     public function label($data){
         /*是否传入户型编号*/
+        $map = null;
         if($data['labelid']){
             $label = str2arr($data['labelid']);
-            $map = '';
+
             foreach($label as $k=>$v){
                 $v = '%'.$v.'%';
                 $map .= ' sortid LIKE "'.$v.'" or';
@@ -152,7 +192,11 @@ class RoomFind extends Model
         return $map;
     }
 
-    /*处理数组*/
+    /**
+     * @param $Info
+     * @return array
+     * 数组排序
+     */
     public function ArrInfo($Info){
         $Infos[0]['title'] = '区域';
         $Infos[0]['children'] = $Info['city'];

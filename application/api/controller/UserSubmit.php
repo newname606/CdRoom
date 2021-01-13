@@ -4,15 +4,16 @@
 namespace app\api\controller;
 
 
+use phpDocumentor\Reflection\Type;
 use think\Controller;
 
 class UserSubmit extends Controller
 {
-
-    /*用户提交买房和卖房信息接口
-    type  0  买房
-    type  1  卖房
-    */
+    /**
+     * @param  string type 状态 0 买房 1卖房
+     * @return \think\response\Json
+     * 用户提交买房和卖房信息接口
+     */
     public function RoomSubmit()
     {
         $data = input('post.');
@@ -34,11 +35,13 @@ class UserSubmit extends Controller
         }
     }
 
-    /*用户提交问题反馈接口
-    summary 问题描述
-    logo 图片
-    phone 手机号
-    */
+    /**
+     * @param  string summary 问题描述
+     * @param  string logo 图片
+     * @param  string phone 联系方式
+     * @return \think\response\Json
+     * 用户提交问题反馈接口
+     */
     public function Question_Fback(){
         $data = input('post.');
         if($data){

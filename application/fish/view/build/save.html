@@ -40,7 +40,7 @@
                 <option value="">--请选择--</option>
                 {volist name="areas" id="area"}
                 <option value="{$area.id}"
-                <?php if(isset($row)){ if($area['id']==$row['areaid']){ ?> selected="selected" <?php }} ?> >{$area.area}</option>
+                <?php if(isset($row)){ if($area['id']==$row['areaid']){ ?> selected="selected" <?php }} ?> >{$area.area}㎡</option>
                 {/volist}
             </select>
         </div>
@@ -53,7 +53,7 @@
                 <option value="">--请选择--</option>
                 {volist name="units" id="unit"}
                 <option value="{$unit.id}"
-                <?php if(isset($row)){ if($unit['id']==$row['unitid']){ ?> selected="selected" <?php }} ?> >{$unit.name}</option>
+                <?php if(isset($row)){ if($unit['id']==$row['unitid']){ ?> selected="selected" <?php }} ?> >{$unit.name}元/㎡</option>
                 {/volist}
             </select>
         </div>
@@ -66,7 +66,7 @@
                 <option value="">--请选择--</option>
                 {volist name="totals" id="total"}
                 <option value="{$total.id}"
-                <?php if(isset($row)){ if($total['id']==$row['totalid']){ ?> selected="selected" <?php }} ?> >{$total.name}</option>
+                <?php if(isset($row)){ if($total['id']==$row['totalid']){ ?> selected="selected" <?php }} ?> >{$total.name}万元</option>
                 {/volist}
             </select>
         </div>
@@ -104,19 +104,6 @@
             </select>
         </div>
     </div>
-
-    <!--<div class="row cl">
-        <label class="form-label col-xs-4 col-sm-3">户型</label>
-        <div class="formControls col-xs-8 col-sm-9">
-            <select class="btn btn-primary radius" name="typeid" id="typeid">
-                <option value="">&#45;&#45;请选择&#45;&#45;</option>
-                {volist name="types" id="type"}
-                <option value="{$type.id}"
-                <?php if(isset($row)){ if($type['id']==$row['typeid']){ ?> selected="selected" <?php }} ?> >{$type.type}</option>
-                {/volist}
-            </select>
-        </div>
-    </div>-->
     <div class="row cl">
         <label class="form-label col-xs-4 col-sm-3">户型</label>
         <div class="formControls col-xs-8 col-sm-9">

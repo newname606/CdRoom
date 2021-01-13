@@ -40,10 +40,10 @@
         <td>{$row.area}㎡</td>
         <td>
             {volist name="row['logos']" id='logo'}
-            <img style="width: 60px;height: 40px;" src="{$logo}" alt="">
+            <img style="width: 60px;" src="{$logo}" alt="">
             {/volist}
         </td>
-        <td><img style="width: 100px;height: 80px;" src="{$row.build_logo}" alt=""></td>
+        <td><img style="width: 100px;" src="{$row.build_logo}" alt=""></td>
         <td>{$row.create_time}</td>
         <td><a title="查看" href="{:url('detail',array('id'=>$row['id']))}" class="ml-5" style="text-decoration:none">查看详情</a>
         </td>

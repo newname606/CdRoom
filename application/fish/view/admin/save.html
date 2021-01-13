@@ -20,7 +20,8 @@
         <div class="formControls col-xs-8 col-sm-9">
             <select class="btn btn-primary radius" name="role_id" id="">
                 {volist name='role' id='vo'}
-                <option value="{$vo.id}" <?php if(isset($row)){ ?> selected="selected" <?php } ?>>{$vo.name}</option>
+                <option value="{$vo.id}"
+                <?php if(isset($row)){ if($vo['id']==$row['role_id']){ ?> selected="selected" <?php }} ?>>{$vo.name}</option>
                 {/volist}
             </select>
         </div>

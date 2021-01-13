@@ -9,7 +9,7 @@ class Comment extends Base{
     public function __index_data()
     {
         /*查询出所有楼盘名称*/
-        $rows = model('Build')->field('id,bname,path')->paginate();
+        $rows = model('Build')->field('id,bname,path')->order('path')->paginate();
         $this->assign('rows',$rows);
     }
 

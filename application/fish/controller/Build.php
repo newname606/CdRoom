@@ -22,8 +22,9 @@ class Build extends Controller
             ->paginate();
         $labels = model('BuildLabel')->field('id,name')->select();/*楼盘标签*/
         $arr = [];
-        $l_name = '';
+
         foreach ($rows as $k => $v) {
+            $l_name = '';
             $label_id = explode(',', $v['labelid']);/*楼盘标签*/
             foreach ($labels as $label) {
                 if (in_array($label['id'], $label_id)) {
@@ -43,7 +44,6 @@ class Build extends Controller
             'count' => $count,
             'rows' => $rows,
         ]);
-//        $this->__index_data();
         return $this->fetch();
     }
 

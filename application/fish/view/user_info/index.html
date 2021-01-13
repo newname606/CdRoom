@@ -12,6 +12,7 @@
         <th>用户名</th>
         <th>用户头像</th>
         <th>用户性别</th>
+        <th>用户手机号</th>
         <th>用户状态</th>
         <th>用户创建时间</th>
         <th>操作</th>
@@ -31,6 +32,7 @@
             女
             {/if}
         </td>
+        <td>{$row.phone}</td>
         <td class="td-status">
             {if condition='$row.state eq 1'}
             <span class="label label-success radius">已启用</span>

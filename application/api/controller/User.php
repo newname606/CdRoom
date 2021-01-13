@@ -13,9 +13,14 @@ use think\Controller;
 class User extends Controller
 {
 
-    /*获取用户信息
-    *传入用户ID
-    */
+    /**
+     * @param string $id 用户编号
+     * @return \think\response\Json
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     * 获取用户信息
+     */
     public function userinfo($id = '')
     {
         $list = db("UserInfo")->find($id);
@@ -26,13 +31,17 @@ class User extends Controller
         }
     }
 
-    /*修改用户信息
+    /**
      * id 用户编号 必传
      * logo 用户头像
      * uname 用户名
      * sex 用户性别
      * phone 手机号
-     * */
+     *
+     * @return \think\response\Json
+     * @throws \think\Exception
+     * @throws \think\exception\PDOException
+     */
     public function UpdateInfo()
     {
         $data = input();
@@ -49,43 +58,41 @@ class User extends Controller
         }
     }
 
-    /*
-     * 获取用户手机号
-     * uname  用户名
-     * logo 用户头像
-     * openid 用户的openid
-     * iv
-     * encryptedData
-     * code 用户的code码
-     * */
+    /**
+     * @param string uname 用户名
+     * @param string logo 用户头像
+     * @param string openid 用户唯一标识
+     * @param string encryptedData
+     * @param string iv
+     * @return \think\response\Json
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
 
     public function getphone()
     {
+
         $data = input('post.');
         $appid = 'wx6d8bc8404d67a87c';/*小程序的appid*/
         $secret = '1eb8f70d0d69975b31c8c16e76e2146f';/*小程序的secret*/
-        $insert_data = model("User")->GetPhone($data,$appid,$secret);
+        $insert_data = model("User")->GetPhone($data, $appid, $secret);
 
-        // 修改 用户名 手机号 logo code openID
-        $result = model('UserInfo')->where('openid', $insert_data['openID'])->update($insert_data);
-        $row = model('UserInfo')->where('openid', $insert_data['openID'])->find();
+        // 修改手机号
+        $result = model('UserInfo')->where('openid', $insert_data['openid'])->setField('phone', $insert_data['phone']);
 
-        return json(array('code' => 200, 'msg' => '登录成功', 'id' => $row['id']));
+        $row = model('UserInfo')->where('openid', $insert_data['openid'])->find();
+
+        return json(array('code' => 200, 'msg' => '登录成功', 'data' => $row));
 
     }
-
-    /*
-     * uname 用户名
-     * logo 头像
-     * code 用户的code码
-     * */
 
     public function userlogo()
     {
         $data = input();
         $appid = 'wx6d8bc8404d67a87c';/*小程序的appid*/
         $secret = '1eb8f70d0d69975b31c8c16e76e2146f';/*小程序的secret*/
-        $data = model('User')->GetOpenid($data,$appid,$secret);
+        $data = model('User')->GetOpenid($data, $appid, $secret);
 
         $row = model('UserInfo')->where('openid', $data['openid'])->find();
 
@@ -94,8 +101,8 @@ class User extends Controller
             $data['create_time'] = time();
             //为空说明用户不存在返回402
             $id = model('UserInfo')->insertGetId($data);
-            $data = db('UserInfo')->where('id',$id)->find();
-            return json(array('code' => 402, 'msg' => '需要授权手机号','data'=>$data));
+            $data = db('UserInfo')->where('id', $id)->find();
+            return json(array('code' => 200, 'msg' => '需要授权手机号', 'data' => $data));
         } else {
             //不为空说明用户存在返回200,和用户的id
             return json(array('code' => 200, 'data' => $row, 'msg' => '登录成功'));
@@ -106,11 +113,11 @@ class User extends Controller
     public function uploadimage()
     {
         $file = request()->file('logo');
-        if ($file){
+        if ($file) {
             $logo = image($file);
-            return json(array('code'=>200,'msg'=>'上传成功','imgurl'=>$logo));
-        }else{
-            return json(array('code'=>402,'msg'=>'上传失败','imgurl'=>''));
+            return json(array('code' => 200, 'msg' => '上传成功', 'imgurl' => $logo));
+        } else {
+            return json(array('code' => 402, 'msg' => '上传失败', 'imgurl' => ''));
         }
     }
 
@@ -130,14 +137,14 @@ class User extends Controller
             unset($ulike[$key]);
             $ulike = arr2str($ulike);
             $res = db('UserInfo')->where('id', $userid)->setField('ulike', $ulike);
-            $data['msg']='取消关注成功';
+            $data['msg'] = '取消关注成功';
             return json(array('code' => 200, 'data' => $data));
         } else {
             /*未查询到,关注楼盘*/
             $ulike[] = $buildid;
             $ulike = arr2str($ulike);
             $res = db('UserInfo')->where('id', $userid)->setField('ulike', $ulike);
-            $data['msg']='关注成功';
+            $data['msg'] = '关注成功';
             return json(array('code' => 200, 'data' => $data));
         }
     }
@@ -158,13 +165,13 @@ class User extends Controller
             unset($heart[$key]);
             $heart = arr2str($heart);
             $res = db('Comment')->where('id', $commentid)->setField('heart', $heart);
-            $data['msg']='取消点赞成功';
+            $data['msg'] = '取消点赞成功';
             return json(array('code' => 200, 'data' => $data));
         } else {
             $heart[] = $userid;
             $heart = arr2str($heart);
             $res = db('Comment')->where('id', $commentid)->setField('heart', $heart);
-            $data['msg']='点赞成功';
+            $data['msg'] = '点赞成功';
             return json(array('code' => 200, 'data' => $data));
             /*未查询到,点赞*/
         }
@@ -175,28 +182,29 @@ class User extends Controller
     content 评论内容
     buildid 楼盘编号
     */
-    public function UserComment($userid='',$content='',$buildid=''){
-        $result = db('UserInfo')->where('id',$userid)->find();
-        if($result['state'] == 0){
-            return json(array('code'=>500,'msg'=>'账号被冻结,请联系管理员'));
+    public function UserComment($userid = '', $content = '', $buildid = '')
+    {
+        $result = db('UserInfo')->where('id', $userid)->find();
+        if ($result['state'] == 0) {
+            return json(array('code' => 500, 'msg' => '账号被冻结,请联系管理员'));
         }
         $res = db('Comment')
-            ->where('userid',$userid)
-            ->where('content',$content)
-            ->where('roomid',$buildid)
+            ->where('userid', $userid)
+            ->where('content', $content)
+            ->where('roomid', $buildid)
             ->find();
-        if($res){
-            return json(array('code'=>500,'msg'=>'请勿重复评论'));
+        if ($res) {
+            return json(array('code' => 500, 'msg' => '请勿重复评论'));
         }
-        $insert_data['userid']=$userid;
-        $insert_data['content']=$content;
-        $insert_data['roomid']=$buildid;
-        $insert_data['create_time']=time();
+        $insert_data['userid'] = $userid;
+        $insert_data['content'] = $content;
+        $insert_data['roomid'] = $buildid;
+        $insert_data['create_time'] = time();
 
-        if(db('Comment')->insert($insert_data) !== false){
-            return json(array('code'=>200,'msg'=>'评论成功'));
-        }else{
-            return json(array('code'=>402,'msg'=>'评论失败'));
+        if (db('Comment')->insert($insert_data) !== false) {
+            return json(array('code' => 200, 'msg' => '评论成功'));
+        } else {
+            return json(array('code' => 402, 'msg' => '评论失败'));
         }
 
     }
@@ -207,42 +215,44 @@ class User extends Controller
     content 评论内容
     buildid 楼盘编号
     */
-    public function UserReply($username,$replyname,$content,$commentid,$logo,$userid){
-        $result = db('UserInfo')->where('id',$userid)->find();
-        if($result['state'] == 0){
-            return json(array('code'=>500,'msg'=>'账号被冻结,请联系管理员'));
+    public function UserReply($username, $replyname, $content, $commentid, $logo, $userid)
+    {
+        $result = db('UserInfo')->where('id', $userid)->find();
+        if ($result['state'] == 0) {
+            return json(array('code' => 500, 'msg' => '账号被冻结,请联系管理员'));
         }
         /*如果回复名为楼主,则不显示*/
         $data = db('Comment')->alias('a')
-            ->field('a.id,b.uname')->join('UserInfo b','a.userid=b.id')
+            ->field('a.id,b.uname')->join('UserInfo b', 'a.userid=b.id')
             ->find();
-        if($replyname == $data['uname']){
+        if ($replyname == $data['uname']) {
             $replyname = '';
         }
-        $insert_data['username']    =$username;
-        $insert_data['replyname']   =$replyname;
-        $insert_data['content']     =$content;
-        $insert_data['logo']        =$logo;
-        $insert_data['commentid']   =$commentid;
-        $insert_data['create_time'] =time();
+        $insert_data['username'] = $username;
+        $insert_data['replyname'] = $replyname;
+        $insert_data['content'] = $content;
+        $insert_data['logo'] = $logo;
+        $insert_data['commentid'] = $commentid;
+        $insert_data['create_time'] = time();
 
-        if(db('Reply')->insert($insert_data) !== false){
-            return json(array('code'=>200,'msg'=>'评论成功'));
-        }else{
-            return json(array('code'=>402,'msg'=>'评论失败'));
+        if (db('Reply')->insert($insert_data) !== false) {
+            return json(array('code' => 200, 'msg' => '评论成功'));
+        } else {
+            return json(array('code' => 402, 'msg' => '评论失败'));
         }
     }
 
     /*我的关注楼盘页
     userid  用户编号*/
-    public function Mylike($userid='',$page=1,$pagesize=5){
+    public function Mylike($userid = '', $page = 1, $pagesize = 5)
+    {
 
-        $data = model('User')->GetMylike($userid,$page,$pagesize);
+        $data = model('User')->GetMylike($userid, $page, $pagesize);
 
-        if($data){
-            return json(array('code'=>200,'msg'=>'请求成功','data'=>$data));
-        }else{
-            return json(array('code'=>402,'msg'=>'暂无关注楼盘','data'=>[]));
+        if ($data) {
+            return json(array('code' => 200, 'msg' => '请求成功', 'data' => $data));
+        } else {
+            return json(array('code' => 402, 'msg' => '暂无关注楼盘', 'data' => []));
         }
     }
 }

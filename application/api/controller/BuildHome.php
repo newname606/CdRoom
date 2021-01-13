@@ -43,19 +43,24 @@ class BuildHome extends Controller
         }
     }
 
-    /*搜索框
-    type 0 首页搜索  1 房友圈搜索
-    state 0 楼盘动态 1 热门文章
-    page 第几页
-    pagesize 一页多少条
-    */
-    public function SerchInfo($type = '', $content = '', $state = '', $page = 1, $pagesize = 5)
+    /**
+     * @param string $type 0 首页搜索  1 房友圈搜索
+     * @param string $content 搜索内容
+     * @param int $page 页码
+     * @param int $pagesize 每页的条数
+     * @return \think\response\Json
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+    public function SerchInfo($type = '', $content = '', $page = 1, $pagesize = 5)
     {
         $pages = ($page - 1) * $pagesize;
         if ($type == '0') {
-
-            $data = db('Build')->where('bname like "%' . $content . '%"')->limit($pages, $pagesize)->select();
-
+            $data = db('Build')
+                ->where('bname like "%' . $content . '%"')
+                ->limit($pages, $pagesize)
+                ->select();
             foreach ($data as $k => $v) {
                 $label = GetLabel($v);
                 $v['label'] = $label;
@@ -64,22 +69,11 @@ class BuildHome extends Controller
                 $data[$k] = $v;
             }
         } else if ($type == '1') {
-            if ($state == '0') {
-                $data = db('Dongtai')->alias('a')
-                    ->field('a.id,a.create_time,a.content,b.bname')
-                    ->join('Build b', 'a.roomid=b.id')
-                    ->where('b.bname like "%' . $content . '%"')
-                    ->limit($pages, $pagesize)
-                    ->select();
-            } else if ($state == '1') {
-                $data = db('Dongtai')->field('id,uname,title,logo,create_time')
-                    ->where('title like "%' . $content . '%"')
-                    ->limit($pages, $pagesize)
-                    ->select();
-            } else {
-                $data = [];
-            }
-
+            $data = db('Dongtai')->field('id,uname,title,logo,create_time')
+                ->where('title like "%' . $content . '%"')
+                ->where('labelid', '<>', 2)
+                ->limit($pages, $pagesize)
+                ->select();
         } else {
             $data = [];
         }
@@ -87,7 +81,21 @@ class BuildHome extends Controller
         if ($data) {
             return json(array('code' => 200, 'msg' => '查询成功', 'data' => $data));
         } else {
-            return json(array('code' => 402, 'msg' => '请稍后再试', 'data' => []));
+            return json(array('code' => 402, 'msg' => '暂无数据', 'data' => []));
+        }
+    }
+
+
+    /**
+     * 获取热门关键字
+     */
+    public function GetKeywords()
+    {
+        $res = db('Keywords')->select();
+        if ($res) {
+            return json(['code' => 200, 'msg' => '请求成功', 'data' => $res]);
+        } else {
+            return json(['code' => 200, 'msg' => '暂无数据', 'data' => []]);
         }
     }
 }

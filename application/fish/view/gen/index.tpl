@@ -1,10 +1,10 @@
 {extend name="Public:Baseindex" /}
 {block name="content"}
     <div class="cl pd-5 bg-1 bk-gray mt-20">
-        <a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i
-                    class="Hui-iconfont">&#xe6e2;</i> 批量删除</a>
+        <a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a>
         <a href="{:url('save')}" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i>添加</a></span>
-        <span class="r">共有数据：<strong>{$count}</strong> 条</span></div>
+        <span class="r">共有数据：<strong>{$count}</strong> 条</span>
+    </div>
     <table class="table table-border table-bordered table-hover table-bg table-sort">
         <thead>
         <tr>
@@ -29,12 +29,9 @@
                 <?php endif;?>
                 <?php endForeach;  ?>
                 <td class="td-manage">
-                    <a title="编辑" href="{:url('save',array('id'=>$row['id']))}" class="ml-5"
-                       style="text-decoration:none">
-                        <i class="Hui-iconfont">&#xe6df;</i>
-                    </a> <a title="删除" href="javascript:;" onclick="obj_del(this,{$row['id']})" class="ml-5"
-                            style="text-decoration:none">
-                        <i class="Hui-iconfont">&#xe6e2;</i></a>
+                    <a title="编辑" href="{:url('save',array('id'=>$row['id']))}" class="ml-5" style="text-decoration:none">
+                        <i class="Hui-iconfont">&#xe6df;</i></a>
+                    <a title="删除" href="javascript:;" onclick="obj_del(this,{$row['id']})" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>
                 </td>
             </tr>
             </tbody>

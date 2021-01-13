@@ -22,7 +22,7 @@ class HouseType extends Controller {
     public function save($id=''){
         if (request()->isPost()){
             $data=input('post.');
-//            dump($data);die;
+
             foreach($data as $k=>$v){
                 if($k == 'id'){
                     continue;
@@ -96,7 +96,7 @@ class HouseType extends Controller {
     public function __index_data()
     {
         /*查询出所有楼盘名称*/
-        $rows = model('Build')->field('id,bname,path')->paginate();
+        $rows = model('Build')->field('id,bname,path')->order('path')->paginate();
         $this->assign('rows',$rows);
     }
 

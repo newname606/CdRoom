@@ -39,7 +39,6 @@ class User extends Model
         curl_close($ch);
         // 得到session_key结果数组
         $result2Session = json_decode($str, true);
-//        dump($result2Session);die;
         $data['openid'] = $result2Session['openid'];
         return $data;
     }
@@ -75,10 +74,8 @@ class User extends Model
         curl_close($ch);
         // 得到session_key结果数组
         $result2Session = json_decode($str, true);
-        $data['openID'] = $result2Session['openid'];
 
-        $insert_data['openid'] = $data['openID'];
-
+        $insert_data['openid'] = $result2Session['openid'];
         $aesKey = base64_decode($result2Session['session_key']);
         $aesIV = base64_decode($data['iv']);
         $aesCipher = base64_decode($data['encryptedData']);
@@ -87,11 +84,6 @@ class User extends Model
         $arr_result = json_decode($result, true);
         // 获取到的手机号
         $insert_data['phone'] = $arr_result['purePhoneNumber'];
-        // 用户名
-        $insert_data['uname'] = $data['uname'];
-        // logo
-        $insert_data['logo'] = $data['logo'];
-
         return $insert_data;
     }
 

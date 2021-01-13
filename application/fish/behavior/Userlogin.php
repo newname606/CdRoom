@@ -30,6 +30,7 @@ class Userlogin extends Controller
         foreach($menus as $menu){
             $arr[] = $menu['path'];
         }
+
         if ($module=='fish'){
             if(in_array($controller_name,$arr)){
                 return true;
@@ -37,6 +38,7 @@ class Userlogin extends Controller
                 echo '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>页面错误</title></head><body><h1>404!</h1><span>你访问的页面不存在</span></body></html>';exit;
             }
         }
+
         /*elseif ($module == 'api'){
             $ip = get_ip();
             $res = isIp($ip);

@@ -11,10 +11,10 @@
         <th>操作</th>
     </tr>
     </thead>
-    {volist name="rows" id="row"}
+    {volist name="rows" id="row" key="i"}
     <tbody>
     <tr>
-        <td>{$row.id}</td>
+        <td>{$i}</td>
         <td>{$row.bname}</td>
         <td>{$row.path}</td>
         <td class="td-manage">

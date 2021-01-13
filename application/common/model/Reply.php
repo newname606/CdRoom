@@ -8,12 +8,14 @@ class Reply extends Model
 {
     protected $update_time = false;
 
-    /*获取评论接口
-        buildid 楼盘编号
-        type  0 查询所有 1 查询三条
-        state 0 默认查询 1 按时间查询
-        userid 用户编号
-    */
+    /**
+     * @param string $buildid 楼盘编号
+     * @param string $userid 用户编号
+     * @param string $state 状态 0默认查询 1按时间查询
+     * @param int $page
+     * @param int $pagesize
+     */
+
     public function GetComment($buildid = '', $userid = '', $state = '', $page = '', $pagesize = '')
     {
         $pages = ($page - 1) * $pagesize;

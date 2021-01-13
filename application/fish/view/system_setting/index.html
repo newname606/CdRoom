@@ -10,6 +10,7 @@
         <th>名称</th>
         <th>简介</th>
         <th>联系方式</th>
+        <th>首页广告图</th>
         <th>创建时间</th>
         <th>操作</th>
     </tr>
@@ -21,6 +22,7 @@
         <td>{$row.name}</td>
         <td>{$row.content}</td>
         <td>{$row.phone}</td>
+        <td><img style="width: 200px;" src="{$row.logo}" alt=""></td>
         <td>{$row.create_time}</td>
         <td class="td-manage">
             <a title="编辑" href="{:url('save',array('id'=>$row['id']))}" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>

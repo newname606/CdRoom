@@ -29,7 +29,7 @@ class Base extends Controller
     public function save($id=''){
         if (request()->isPost()){
             $data=input('post.');
-//            dump($data);die;
+
             foreach($data as $k=>$v){
                 if($k == 'id'){
                     continue;
@@ -39,6 +39,7 @@ class Base extends Controller
                     }
                 }
             }
+            /*处理富文本*/
             if(isset($data['textarea'])){
                 $data['text'] = $data['textarea'];
                 unset($data['textarea']);
@@ -81,6 +82,10 @@ class Base extends Controller
         return $this->fetch();
     }
 
+
+    /**
+     * 钩子方法
+     */
     protected  function __index_data(){}
     protected  function __save_data(){}
 

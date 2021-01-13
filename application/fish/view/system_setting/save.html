@@ -19,6 +19,12 @@
             <input type="text" class="input-text" value="{$row['phone']?$row['phone']:''}" name="phone">
         </div>
     </div>
+    <div class="row cl">
+        <label class="form-label col-xs-4 col-sm-3">首页广告图</label>
+        <div class="formControls col-xs-8 col-sm-9">
+            <input type="file" name="logo" id="logo">
+        </div>
+    </div>
     <input type="hidden" name="id" value="{$row['id'] ? $row['id'] : ''}">
     <div class="row cl">
         <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">

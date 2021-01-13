@@ -8,7 +8,14 @@ use think\Controller;
 class BuildDetail extends Controller
 {
 
-    /*获取楼盘户型图接口*/
+    /**
+     * 获取此楼盘所有户型图
+     * @param string $buildid
+     * @return \think\response\Json
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
     public function GetHouseType($buildid = '')
     {
         if ($buildid) {
@@ -23,9 +30,16 @@ class BuildDetail extends Controller
         }
     }
 
-    /*获取此楼盘动态
-    page  pagesize 页码 多少条
-    */
+    /**
+     * 获取楼盘动态
+     * @param string $buildid 楼盘编号
+     * @param int $page 页码
+     * @param int $pagesize 条数
+     * @return \think\response\Json
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
     public function GetDongtai($buildid = '', $page = 1, $pagesize = 5)
     {
         $pages = ($page-1)*$pagesize;
@@ -42,11 +56,16 @@ class BuildDetail extends Controller
         }
     }
 
-    /*获取评论接口
-    buildid 楼盘编号
-    state 0 默认查询 1 按时间查询
-    userid 用户编号
-    */
+    /**
+     * 获取此楼盘评论
+     * @param string $buildid 楼盘编号
+     * @param string $userid 用户编号
+     * @param string $state 状态 0默认查询 1按时间查询
+     * @param int $page
+     * @param int $pagesize
+     * @return \think\response\Json
+     */
+
     public function GetComment($buildid = '', $userid = '', $state = '', $page = 1, $pagesize = 5)
     {
         if ($buildid) {
@@ -61,7 +80,15 @@ class BuildDetail extends Controller
         }
     }
 
-    /*评论详情*/
+    /**
+     * 获取评论详情
+     * @param string $commentid 评论编号
+     * @param string $userid 用户编号
+     * @return \think\response\Json
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
     public function CommentDetail($commentid='',$userid=''){
         $comment = db("Comment")->alias('a')
             ->field('a.id,a.content,a.heart,a.create_time time,b.uname,b.logo')
@@ -87,11 +114,12 @@ class BuildDetail extends Controller
         return json(array('code'=>200,'msg'=>'请求成功','data'=>$comment));
     }
 
-    /*
-    * 楼盘信息接口
-    *buildid 楼盘编号
-     * userid 用户编号
-    */
+    /**
+     * 楼盘信息接口
+     * @param string $buildid 楼盘编号
+     * @param string $userid 用户编号
+     * @return \think\response\Json
+     */
     public function BuildInfo($buildid = '', $userid = '')
     {
         if ($buildid) {
@@ -106,7 +134,14 @@ class BuildDetail extends Controller
         }
     }
 
-    /*楼盘详情页接口*/
+    /**
+     * 楼盘详情页接口
+     * @param string $buildid 楼盘编号
+     * @return \think\response\Json
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
     public function BuildDetail($buildid = '')
     {
         if ($buildid) {

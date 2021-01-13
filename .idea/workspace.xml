@@ -1,7 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c884d13b-1af4-4eba-9e6b-570f19db2c94" name="默认的" comment="" />
+    <list default="true" id="c884d13b-1af4-4eba-9e6b-570f19db2c94" name="默认的" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/common/model/Keywords.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/fish/controller/Keywords.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/fish/view/keywords/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/fish/view/keywords/save.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/20210111/85c6adf5716068a25451e894099c2d93.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/20210111/93cb3754fc35045c23cab02f1c222c49.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/20210111/bf3f227c07a5753daf59cd2a993208ee.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/20210112/165f5776182fb109a2ecc706b0750a0b.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/20210112/1a8969ac6cd73cd13beb70d1082b50e8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/20210112/2847f51a855145e327a513af1cf8f233.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/20210112/2ed298eccc66aa4805f3932c9a530e05.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/20210112/4092882ceb0aa8436ce60ced520eb45c.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/20210112/82e06404aa8992baf04a7a94676213ac.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/20210112/8456b90e7ca8a64cd56cd63a4280fe9e.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/20210112/85ef40b268bf607130bb709b9902c8cb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/20210112/9ab840213d05c7e2c56ea4714b8fe57d.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/20210112/d1e5d5bbcdccfb4c0792d187f4dcec1e.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/20210112/e0aea959f44f23fd5e40e64a87a1759e.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/20210112/f78fb4160cb24f573b6336b0ea4b45c0.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/20210112/fe2e05a7b861b917656d3ae77ac68bc8.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/api/controller/BuildDetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/api/controller/BuildDetail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/api/controller/BuildDongtai.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/api/controller/BuildDongtai.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/api/controller/BuildHome.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/api/controller/BuildHome.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/api/controller/Message.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/api/controller/Message.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/api/controller/RoomFind.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/api/controller/RoomFind.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/api/controller/System.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/api/controller/System.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/api/controller/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/api/controller/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/api/controller/UserSubmit.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/api/controller/UserSubmit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/common.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/common.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/common/model/Reply.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/common/model/Reply.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/common/model/RoomFind.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/common/model/RoomFind.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/common/model/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/common/model/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/extra/queue.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/extra/queue.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/fish/behavior/Userlogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/fish/behavior/Userlogin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/fish/controller/Base.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/fish/controller/Base.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/fish/controller/Build.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/fish/controller/Build.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/fish/controller/City.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/fish/controller/City.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/fish/controller/Comment.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/fish/controller/Comment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/fish/controller/HouseType.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/fish/controller/HouseType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/fish/view/Public/Basesave.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/fish/view/Public/Basesave.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/fish/view/admin/save.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/fish/view/admin/save.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/fish/view/build/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/fish/view/build/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/fish/view/build/save.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/fish/view/build/save.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/fish/view/build_area/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/fish/view/build_area/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/fish/view/build_label/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/fish/view/build_label/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/fish/view/build_label/save.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/fish/view/build_label/save.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/fish/view/build_type/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/fish/view/build_type/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/fish/view/build_zgxiu/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/fish/view/build_zgxiu/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/fish/view/comment/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/fish/view/comment/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/fish/view/contact/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/fish/view/contact/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/fish/view/gen/index.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/application/fish/view/gen/index.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/fish/view/hezuo/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/fish/view/hezuo/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/fish/view/house_type/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/fish/view/house_type/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/fish/view/join/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/fish/view/join/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/fish/view/label/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/fish/view/label/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/fish/view/menu/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/fish/view/menu/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/fish/view/nav/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/fish/view/nav/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/fish/view/sort/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/fish/view/sort/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/fish/view/system_setting/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/fish/view/system_setting/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/fish/view/system_setting/save.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/fish/view/system_setting/save.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/fish/view/user_info/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/fish/view/user_info/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/route.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/route.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/ExampleTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/ExampleTest.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,10 +80,13 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -64,16 +133,18 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1jAwNIk8OyOrrWP9ySzoG11we1s" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/gen/generate" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -89,11 +160,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\CdRoom\generate" />
       <recent name="E:\CdRoom\generate\public\static\admin" />
       <recent name="E:\CdRoom\generate\public\static\admin\ckeditor" />
       <recent name="E:\CdRoom\generate\application\fish\view\system_setting" />
       <recent name="E:\CdRoom\generate\public" />
-      <recent name="E:\CdRoom\generate\application" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\CdRoom\generate\public\uploads\20201231" />
@@ -121,12 +192,27 @@
       <workItem from="1609982544741" duration="25452000" />
       <workItem from="1610068429287" duration="26827000" />
       <workItem from="1610158249220" duration="19456000" />
-      <workItem from="1610327433983" duration="21590000" />
+      <workItem from="1610327433983" duration="24825000" />
+      <workItem from="1610414364439" duration="22585000" />
+      <workItem from="1610445348611" duration="251000" />
+      <workItem from="1610500834618" duration="19755000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

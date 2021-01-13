@@ -1,8 +1,8 @@
 {extend name="Public:Basesave"/}
 {block name="content"}
-<script src="http://code.jquery.com/jquery-latest.js">
+<!--<link rel="stylesheet" type="text/css" href="__ADMIN__/colorpicker/js/colorpicker.js"/>-->
 
-</script>
+
 <form action="" method="post" class="form form-horizontal" id="form-member-add" enctype="multipart/form-data">
     <div class="row cl">
         <label class="form-label col-xs-4 col-sm-3">名称</label>
@@ -10,10 +10,11 @@
             <input type="text" placeholder="请输入楼盘的关键词,如在售,近海" class="input-text" value="{$row['name']?$row['name']:''}" name="name">
         </div>
     </div>
-
+    <div id="colorpicker" class="colorpicker">123</div>
     <div class="row cl">
         <label class="form-label col-xs-4 col-sm-3">标签背景颜色</label>
         <div class="formControls col-xs-8 col-sm-9">
+
             <select class="btn btn-primary radius"  name="color">
                 <option value="">--请选择--</option>
                 <option style="background: #DC143C" value="#DC143C">红色</option>

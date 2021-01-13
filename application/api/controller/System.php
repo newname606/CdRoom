@@ -5,7 +5,14 @@ use think\Controller;
 
 class System extends Controller
 {
-    /*获取常见问题接口*/
+    /**
+     * 获取帮助中心接口
+     * @return \think\response\Json
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+
     public function GetHelpInfo(){
         $data = db('HelpCenter')->select();
         if($data){
@@ -15,7 +22,14 @@ class System extends Controller
         }
     }
 
-    /*获取小程序*/
+    /**
+     * 获取小程序信息
+     * @return \think\response\Json
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+
     public function GetInfo(){
         $data = db('System_setting')->find();
         if($data){
@@ -25,15 +39,20 @@ class System extends Controller
         }
     }
 
-    /*商务合作
-    type  1商务合作 2 联系客服 3 加入我们
-    */
+    /**
+     * 联系我们
+     * @param string $type
+     * @return \think\response\Json
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
     public function GetOtherInfo($type=''){
-        if($type == '1'){
+        if($type == '1'){/*商务合作*/
             $data = db('Hezuo')->find();
-        }else if($type == '2'){
+        }else if($type == '2'){/*联系客服*/
             $data = db('Contact')->find();
-        }elseif($type == '3'){
+        }elseif($type == '3'){/*加入我们*/
             $data = db('Join')->find();
         }else{
             $data = [];
@@ -45,7 +64,5 @@ class System extends Controller
             return json(array('code'=>402,'msg'=>'暂无数据','data'=>[]));
         }
     }
-
-
 }
 

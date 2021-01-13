@@ -16,6 +16,11 @@
     <script type="text/javascript" src="__ADMIN__/lib/html5shiv.js"></script>
     <script type="text/javascript" src="__ADMIN__/lib/respond.min.js"></script>
     <![endif]-->
+    <script type="text/javascript" src="__ADMIN__/colorpicker/js/colorpicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="__ADMIN__/colorpicker/css/colorpicker.css"/>
+    <script type="text/javascript">
+        $('#colorpicker').ColorPicker(options);
+    </script>
     <link rel="stylesheet" type="text/css" href="__ADMIN__/static/h-ui/css/H-ui.min.css"/>
     <link rel="stylesheet" type="text/css" href="__ADMIN__/static/h-ui.admin/css/H-ui.admin.css"/>
     <link rel="stylesheet" type="text/css" href="__ADMIN__/lib/Hui-iconfont/1.0.8/iconfont.css"/>
@@ -42,6 +47,8 @@
 <script type="text/javascript" src="__ADMIN__/ckeditor/ckeditor.js"></script>
 <script type="text/javascript" src="__ADMIN__/ckeditor/ckfinder/ckfinder.js"></script>
 <script type="text/javascript">
+
+
 
     CKEDITOR.replace('text', { //这里的 mycontent就是上面我们设置的textarea或者input元素的id
             filebrowserUploadUrl: '/fish.php/admin/uploadimage?command=QuickUpload&type=Files&responseType=json',

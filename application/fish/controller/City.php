@@ -18,7 +18,7 @@ class City extends Base{
 
     /*改变状态启用*/
     public function statestop($id){
-        $res = model('City')->where('id',$id)->setField('state',0);;
+        $res = model('City')->where('id',$id)->setField('state',0);
         if($res){
             return json(1);
         }else{
